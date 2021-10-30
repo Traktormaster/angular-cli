@@ -22,18 +22,18 @@ export interface HashFormat {
 export function getOutputHashFormat(option: string, length = 20): HashFormat {
   const hashFormats: { [option: string]: HashFormat } = {
     none: { chunk: '', extract: '', file: '', script: '' },
-    media: { chunk: '', extract: '', file: `.[hash:${length}]`, script: '' },
+    media: { chunk: '', extract: '', file: `.[fullhash:${length}]`, script: '' },
     bundles: {
       chunk: `.[chunkhash:${length}]`,
       extract: `.[contenthash:${length}]`,
       file: '',
-      script: `.[hash:${length}]`,
+      script: `.[fullhash:${length}]`,
     },
     all: {
       chunk: `.[chunkhash:${length}]`,
       extract: `.[contenthash:${length}]`,
-      file: `.[hash:${length}]`,
-      script: `.[hash:${length}]`,
+      file: `.[fullhash:${length}]`,
+      script: `.[fullhash:${length}]`,
     },
   };
 
